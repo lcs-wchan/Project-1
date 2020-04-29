@@ -10,6 +10,7 @@ import SpriteKit
 
 @objcMembers
 class GameScene: SKScene {
+    let player = SKSpriteNode(imageNamed: "player-rocket.png")
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
         let background = SKSpriteNode(imageNamed: "space.jpg")
@@ -17,6 +18,9 @@ class GameScene: SKScene {
         addChild(background)
         if let particles = SKEmitterNode(fileNamed: "SpaceDust") {particles.advanceSimulationTime(10); particles.position.x = 512
         addChild(particles)
+            player.position.x = -400
+            player.zPosition = 1
+            addChild(player)
         }
     }
 
